@@ -12,18 +12,40 @@ public class ActiveStateOverride : MonoBehaviour
             m_Activate = activate;
             m_Deactivate = deactivate;
             m_Return = _return;
+            m_IsReturned = false;
         }
 
         private readonly Action m_Activate;
         private readonly Action m_Deactivate;
         private readonly Action m_Return;
+        private bool m_IsReturned;
 
-        public void Activate() => m_Activate();
-        public void Deactivate() => m_Deactivate();
-        public void Return() => m_Return();
+        public void Activate()
+        {
+            if (m_IsReturned) return;
+
+            m_Activate();
+        }
+
+        public void Deactivate()
+        {
+            if (m_IsReturned) return;
+
+            m_Deactivate();
+        }
+
+        public void Return()
+        {
+            if (m_IsReturned) return;
+
+            m_IsReturned = true;
+            m_Return();
+        }
 
         public void SetActive(bool state)
         {
+            if (m_IsReturned) return;
+
             if (state)
             {
                 Activate();
