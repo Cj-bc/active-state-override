@@ -1,5 +1,11 @@
 {
   "dependencies": {
+    "com.github.cj-bc.active-state-override": {
+      "version": "file:com.github.cj-bc.active-state-override",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
     "com.unity.burst": {
       "version": "1.8.18",
       "depth": 2,
