@@ -2,13 +2,13 @@ using UnityEngine;
 
 #nullable enable
 
-public class ActiveStateOverride<T> : MonoBehaviour, IActiveStateOverride<T>
+public class ActiveStateOverride : MonoBehaviour, IActiveStateOverride
 {
 
-    private T OverridenBy = default;
+    private object OverridenBy = default;
     private bool _isOverriden = false;
 
-    public OverrideHandler? Override(T overridenBy)
+    public OverrideHandler? Override(object overridenBy)
     {
         if (_isOverriden) return null;
         OverridenBy = overridenBy;
@@ -18,7 +18,7 @@ public class ActiveStateOverride<T> : MonoBehaviour, IActiveStateOverride<T>
 
     private void StopOverride()
     {
-        OverridenBy = default(T);
+        OverridenBy = null;
         _isOverriden = false;
     }
 

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public interface IActiveStateOverride<T>
+public interface IActiveStateOverride
 {
-    public OverrideHandler? Override(T overridenBy);
+    public OverrideHandler? Override(object overridenBy);
 }
