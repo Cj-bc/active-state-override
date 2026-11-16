@@ -2,7 +2,7 @@ using UnityEngine;
 
 #nullable enable
 
-public class ActiveStateOverride : MonoBehaviour
+public class ActiveStateOverride : MonoBehaviour, IActiveStateOverride
 {
 
     private UnityEngine.Object? OverridenBy = null;
