@@ -1,6 +1,6 @@
 using System;
 
-public struct OverrideHandler
+public class OverrideHandler
 {
     internal OverrideHandler(Action activate, Action deactivate, Action _return)
     {
