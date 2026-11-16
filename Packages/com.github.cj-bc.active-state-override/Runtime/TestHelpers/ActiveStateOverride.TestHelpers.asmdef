@@ -1,0 +1,16 @@
+{
+    "name": "ActiveStateOverride.TestHelpers",
+    "rootNamespace": "",
+    "references": [
+        "GUID:dea25bfa47fd0474a8f1ceb85f345a8e"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
