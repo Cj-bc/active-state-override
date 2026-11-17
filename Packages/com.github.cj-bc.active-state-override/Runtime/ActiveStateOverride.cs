@@ -7,6 +7,7 @@ public class ActiveStateOverride : MonoBehaviour, IActiveStateOverride
 {
 
     public object OverridenBy { get; private set; } = default;
+    public bool IsActivated => gameObject.activeSelf;
 
     public event Action<bool> OnActiveStateChanged;
     public event Action<object> OnHandlerChanged;

@@ -3,6 +3,7 @@ using System;
 public class SpyActiveStateOverride : IActiveStateOverride
 {
     public object OverridenBy { get; private set; } = default;
+    public bool IsActivated { get; private set; } = false;
 
     public int Activated { get; private set; } = 0;
     public int Deactivated { get; private set; } = 0;
