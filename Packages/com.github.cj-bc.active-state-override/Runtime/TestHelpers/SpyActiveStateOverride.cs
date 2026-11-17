@@ -1,3 +1,5 @@
+using System;
+
 public class SpyActiveStateOverride : IActiveStateOverride
 {
     public object OverridenBy = default;
@@ -6,6 +8,9 @@ public class SpyActiveStateOverride : IActiveStateOverride
     public int Activated { get; private set; } = 0;
     public int Deactivated { get; private set; } = 0;
     public int Returned { get; private set; } = 0;
+
+    public event Action<bool> OnActiveStateChanged;
+    public event Action<object> OnHandlerChanged;
 
     public OverrideHandler? Override(object overridenBy)
     {
