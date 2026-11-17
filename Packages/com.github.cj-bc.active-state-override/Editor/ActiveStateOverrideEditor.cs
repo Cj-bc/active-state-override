@@ -19,7 +19,7 @@ public class ActiveStateOverrideEditor : Editor
 
             if (overridenBy is not null)
             {
-                if ((UnityEngine.Object)overridenBy is not null)
+                if (overridenBy is UnityEngine.Object)
                 {
                     using (new EditorGUI.DisabledScope(true))
                     {
