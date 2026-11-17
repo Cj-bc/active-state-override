@@ -17,11 +17,20 @@ public class ActiveStateOverrideEditor : Editor
         {
             object overridenBy = m_OverridenByField?.GetValue(_target);
 
-            if (overridenBy is not null && (UnityEngine.Object)overridenBy is not null)
+            if (overridenBy is not null)
             {
-                using (new EditorGUI.DisabledScope(true))
+                if ((UnityEngine.Object)overridenBy is not null)
                 {
-                    EditorGUILayout.ObjectField("Overriden By: ", (UnityEngine.Object)overridenBy, typeof(UnityEngine.Object));
+                    using (new EditorGUI.DisabledScope(true))
+                    {
+                        EditorGUILayout.ObjectField("Overriden By: ", (UnityEngine.Object)overridenBy, typeof(UnityEngine.Object));
+                    }
+                } else
+                {
+                    using (new EditorGUI.DisabledScope(true))
+                    {
+                        EditorGUILayout.TextField($"Overriden By(plain class): {overridenBy}");
+                    }
                 }
             } else
             {
