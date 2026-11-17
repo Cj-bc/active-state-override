@@ -7,11 +7,11 @@ public static class ActiveStateOverrideR3Extension
         => Observable.FromEvent<bool>(h => aso.OnActiveStateChanged += h,
                                       h => aso.OnActiveStateChanged -= h,
                                       cancellationToken)
-        .ToReadOnlyReactiveProperty();
+        .ToReadOnlyReactiveProperty(aso.IsActivated);
 
     public static ReadOnlyReactiveProperty<object> Handler(this IActiveStateOverride aso, CancellationToken cancellationToken)
         => Observable.FromEvent<object>(h => aso.OnHandlerChanged += h,
                                         h => aso.OnHandlerChanged -= h,
                                         cancellationToken)
-        .ToReadOnlyReactiveProperty();
+        .ToReadOnlyReactiveProperty(aso.OverridenBy);
 }
