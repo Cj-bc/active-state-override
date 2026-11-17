@@ -48,7 +48,7 @@ public class ActiveStateOverrideEditor : Editor
         }
     }
 
-    private static MonoScript findMonoScript(Type type)
+    private MonoScript findMonoScript(Type type)
     {
         if (_monoScriptsCache.TryGetValue(type, out var script))
         {
