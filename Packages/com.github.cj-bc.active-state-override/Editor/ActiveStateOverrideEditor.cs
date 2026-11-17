@@ -50,9 +50,9 @@ public class ActiveStateOverrideEditor : Editor
 
     private MonoScript findMonoScript(Type type)
     {
-        if (_monoScriptsCache.TryGetValue(type, out var script))
+        if (_monoScriptsCache.TryGetValue(type, out var cachedScript))
         {
-            return script;
+            return cachedScript;
         }
 
         string[] guids = AssetDatabase.FindAssets($"{type.Name} t:MonoScript");
