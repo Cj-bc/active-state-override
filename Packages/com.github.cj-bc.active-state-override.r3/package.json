@@ -1,0 +1,8 @@
+{
+    "name": "com.github.cj-bc.active-state-override.r3",
+    "displayName": "Active State Override R3 extension",
+    "version": "1.0.0",
+    "dependencies": {
+        "com.cysharp.r3": "1.3.0"
+    }
+}
