@@ -10,10 +10,13 @@ public class ActiveStateOverride : MonoBehaviour, IActiveStateOverride
     private bool _isOverriden = false;
 
     public event Action<bool> OnActiveStateChanged;
+    public event Action<object> OnHandlerChanged;
+
     public OverrideHandler? Override(object overridenBy)
     {
         if (_isOverriden) return null;
         OverridenBy = overridenBy;
+        OnHandlerChanged?.Invoke(OverridenBy);
         _isOverriden = true;
         return new OverrideHandler(Activate, Deactivate, StopOverride);
     }
@@ -21,6 +24,7 @@ public class ActiveStateOverride : MonoBehaviour, IActiveStateOverride
     private void StopOverride()
     {
         OverridenBy = null;
+        OnHandlerChanged?.Invoke(null);
         _isOverriden = false;
     }
 
