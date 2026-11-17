@@ -6,18 +6,18 @@ using UnityEngine;
 public class ActiveStateOverride : MonoBehaviour, IActiveStateOverride
 {
 
-    private object OverridenBy = default;
-    private bool _isOverriden = false;
+    public object OverridenBy { get; private set; } = default;
+    public bool IsOverriden { get; private set; } = false;
 
     public event Action<bool> OnActiveStateChanged;
     public event Action<object> OnHandlerChanged;
 
     public OverrideHandler? Override(object overridenBy)
     {
-        if (_isOverriden) return null;
+        if (IsOverriden) return null;
         OverridenBy = overridenBy;
         OnHandlerChanged?.Invoke(OverridenBy);
-        _isOverriden = true;
+        IsOverriden = true;
         return new OverrideHandler(Activate, Deactivate, StopOverride);
     }
 
@@ -25,7 +25,7 @@ public class ActiveStateOverride : MonoBehaviour, IActiveStateOverride
     {
         OverridenBy = null;
         OnHandlerChanged?.Invoke(null);
-        _isOverriden = false;
+        IsOverriden = false;
     }
 
     private void Activate()
